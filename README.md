@@ -19,7 +19,7 @@
 <br />
 
 <p align="center">
-  <img src="docs/preview.jpg" alt="Smokehouse hero preview" width="100%" />
+  <img src="docs/hero.png" alt="Smokehouse — hero section" width="100%" />
 </p>
 
 <br />
@@ -44,26 +44,31 @@ A dark, premium landing page for **Smokehouse** with three Prague locations. Bui
 - **E-shop banner** — link to [smokehouseshop.cz](https://www.smokehouseshop.cz/)
 - **Responsive** — mobile-first layout, sticky navbar, scroll animations
 
-## Preview
+## Screenshots
 
-<table>
-  <tr>
-    <td width="50%">
-      <img src="docs/preview.jpg" alt="Hero section" />
-      <p align="center"><sub>Hero with ember glow effect</sub></p>
-    </td>
-    <td width="50%">
-      <img src="docs/locations.jpg" alt="Locations section" />
-      <p align="center"><sub>Branch cards — Klimentská</sub></p>
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <img src="docs/loyalty.jpg" alt="Loyalty program" />
-      <p align="center"><sub>Věrnostní program — 7. shisha zdarma</sub></p>
-    </td>
-  </tr>
-</table>
+### Hero
+
+<p align="center">
+  <img src="docs/hero.png" alt="Hero — 3 pobočky, ember glow, CTA buttons" width="100%" />
+</p>
+
+### Pobočky
+
+<p align="center">
+  <img src="docs/locations.png" alt="Locations — three Prague branches" width="100%" />
+</p>
+
+### Premium experience
+
+<p align="center">
+  <img src="docs/features.png" alt="Features — premium shisha experience section" width="100%" />
+</p>
+
+### O nás & Footer
+
+<p align="center">
+  <img src="docs/about.png" alt="About section and footer" width="100%" />
+</p>
 
 ## Tech Stack
 
@@ -112,7 +117,7 @@ npm start
 │   ├── app/             # Next.js app router
 │   ├── components/      # UI sections (Hero, Navbar, Footer…)
 │   └── lib/images.ts    # Image path constants
-└── docs/                # README preview assets
+└── docs/                # README screenshots
 ```
 
 ## Sections
