@@ -58,16 +58,28 @@ A dark, premium landing page for **Smokehouse** with three Prague locations. Bui
   <img src="docs/locations.png" alt="Locations — three Prague branches" width="100%" />
 </p>
 
+### Menu & Rezervace
+
+<p align="center">
+  <img src="docs/cta.png" alt="Menu and reservation CTA blocks" width="100%" />
+</p>
+
+### Věrnostní program
+
+<p align="center">
+  <img src="docs/loyalty.png" alt="Loyalty program section" width="100%" />
+</p>
+
 ### Premium experience
 
 <p align="center">
   <img src="docs/features.png" alt="Features — premium shisha experience section" width="100%" />
 </p>
 
-### O nás & Footer
+### E-shop & O nás
 
 <p align="center">
-  <img src="docs/about.png" alt="About section and footer" width="100%" />
+  <img src="docs/about.png" alt="E-shop banner and about section" width="100%" />
 </p>
 
 ## Tech Stack
