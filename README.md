@@ -19,7 +19,7 @@
 <br />
 
 <p align="center">
-  <video src="docs/hero-ember.mp4" autoplay loop muted playsinline width="100%"></video>
+  <img src="docs/hero-ember.gif" alt="Hero — ember glow & particle effects" width="100%" />
 </p>
 <p align="center"><sub>Hero — ember glow & particle effects</sub></p>
 
@@ -56,7 +56,7 @@ A dark, premium landing page for **Smokehouse** with three Prague locations. Bui
 ### Hero
 
 <p align="center">
-  <video src="docs/hero-ember.mp4" autoplay loop muted playsinline width="100%"></video>
+  <img src="docs/hero-ember.gif" alt="Ember particles & glow animation" width="100%" />
 </p>
 <p align="center"><sub>Ember particles & glow animation</sub></p>
 
