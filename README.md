@@ -19,13 +19,6 @@
 <br />
 
 <p align="center">
-  <img src="docs/hero-ember.gif" alt="Hero — ember glow & particle effects" width="100%" />
-</p>
-<p align="center"><sub>Hero — ember glow & particle effects</sub></p>
-
-<br />
-
-<p align="center">
   <img src="docs/hero.png" alt="Smokehouse — hero section" width="100%" />
 </p>
 
@@ -54,11 +47,6 @@ A dark, premium landing page for **Smokehouse** with three Prague locations. Bui
 ## Screenshots
 
 ### Hero
-
-<p align="center">
-  <img src="docs/hero-ember.gif" alt="Ember particles & glow animation" width="100%" />
-</p>
-<p align="center"><sub>Ember particles & glow animation</sub></p>
 
 <p align="center">
   <img src="docs/hero.png" alt="Hero — 3 pobočky, ember glow, CTA buttons" width="100%" />
