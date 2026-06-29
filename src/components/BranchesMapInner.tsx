@@ -9,8 +9,8 @@ type BranchesMapInnerProps = {
   interactive: boolean;
 };
 
-const DARK_TILES =
-  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
+const MAP_TILES =
+  "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
 
 function createMarkerIcon(label: string) {
   return L.divIcon({
@@ -34,7 +34,7 @@ export function BranchesMapInner({ interactive }: BranchesMapInnerProps) {
       attributionControl: true,
     });
 
-    L.tileLayer(DARK_TILES, {
+    L.tileLayer(MAP_TILES, {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
       subdomains: "abcd",
@@ -52,7 +52,7 @@ export function BranchesMapInner({ interactive }: BranchesMapInnerProps) {
       bounds.extend([branch.lat, branch.lng]);
     }
 
-    map.fitBounds(bounds, { padding: [56, 56], maxZoom: 13 });
+    map.fitBounds(bounds, { padding: [56, 56], maxZoom: 14 });
     mapRef.current = map;
 
     return () => {

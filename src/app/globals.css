@@ -150,8 +150,12 @@
 }
 
 .branch-map-canvas.leaflet-container {
-  background: #050505;
+  background: #141414;
   font-family: var(--font-sans);
+}
+
+.branch-map-canvas .leaflet-tile-pane {
+  filter: brightness(0.78) saturate(0.72) contrast(1.08);
 }
 
 .branch-map-canvas .leaflet-control-zoom a {
