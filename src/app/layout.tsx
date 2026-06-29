@@ -2,9 +2,13 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Smokehouse | Shisha Lounge & Restaurace Praha",
+  title: "Smokehouse — Design Concept (Unofficial)",
   description:
-    "Premium shisha lounge s 3 pobočkami v Praze. Vodní dýmka, burgery, koktejly a nezapomenutelná atmosféra.",
+    "Neoficiální redesign koncept webu Smokehouse — shisha lounge v Praze. Portfolio projekt, není oficiální web smokehouse.cz.",
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({

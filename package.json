@@ -1,6 +1,7 @@
 {
   "name": "smokehouse-landing",
   "version": "0.1.0",
+  "description": "Unofficial Smokehouse website redesign concept — portfolio UI/UX case study (not affiliated with smokehouse.cz)",
   "private": true,
   "scripts": {
     "dev": "next dev",

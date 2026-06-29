@@ -11,6 +11,9 @@
 # cursor local skills
 .cursor/
 
+# pdf generation venv
+.venv-pdf/
+
 # testing
 /coverage
 

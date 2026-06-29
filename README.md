@@ -5,8 +5,15 @@
 <h1 align="center">Smokehouse Landing Page</h1>
 
 <p align="center">
-  Modern redesign concept for <a href="https://www.smokehouse.cz/">Smokehouse</a> — premium shisha lounge & restaurant in Prague.
+  <strong>Unofficial redesign concept</strong> for <a href="https://www.smokehouse.cz/">Smokehouse</a> — premium shisha lounge & restaurant in Prague.
 </p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Status-Design%20Concept-gold?style=flat-square" alt="Design Concept" />
+  <img src="https://img.shields.io/badge/Official%20site-smokehouse.cz-orange?style=flat-square" alt="Official site" />
+</p>
+
+> **⚠️ Disclaimer** — This is **not** the official Smokehouse website. It is a personal portfolio project / UI-UX case study. The author is **not affiliated** with Smokehouse or MATEA Restaurants s.r.o. Brand assets and content are used for demonstration only. See [DISCLAIMER.md](DISCLAIMER.md) for full details.
 
 <p align="center">
   <img src="https://img.shields.io/badge/Next.js-15-black?style=flat-square&logo=next.js" alt="Next.js" />
@@ -26,13 +33,16 @@
 
 ## Overview
 
-A dark, premium landing page for **Smokehouse** with three Prague locations. Built as a modern alternative to the current website — keeping brand identity, original photos, and Czech content while adding smooth animations and a cleaner layout.
+A dark, premium **landing page concept** for **Smokehouse** with three Prague locations. Built as a modern alternative to the [current website](https://www.smokehouse.cz/) — keeping brand identity, original photos, and Czech content while adding smooth animations and a cleaner layout.
+
+**Purpose:** portfolio piece, design exploration, and front-end case study. Not intended for production use by the brand without permission.
 
 | | |
 |---|---|
-| **Brand** | Dark lounge aesthetic, gold accents, original Smokehouse logo |
+| **Type** | Unofficial redesign concept · UI/UX case study |
+| **Brand** | Dark lounge aesthetic, gold accents, original Smokehouse logo (demo use) |
 | **Content** | Czech language, 3 branches, menu, loyalty program, e-shop |
-| **Assets** | Photos sourced from [smokehouse.cz](https://www.smokehouse.cz/) |
+| **Assets** | Photos sourced from [smokehouse.cz](https://www.smokehouse.cz/) for illustration |
 
 ## Features
 
@@ -111,6 +121,11 @@ npm run dev
 
 Open **[http://localhost:3000](http://localhost:3000)** in your browser.
 
+### Deploy (GitHub Pages)
+
+The site deploys automatically via GitHub Actions when pushed to `main`.  
+Live demo: **https://zirvey.github.io/smokehouse-desing/** *(requires public repository)*
+
 ### Build for production
 
 ```bash
@@ -147,8 +162,13 @@ npm start
 
 **Zirvey** — [GitHub](https://github.com/Zirvey)
 
+## Legal
+
+This project is licensed under the [MIT License](LICENSE).  
+Brand trademarks belong to their respective owners — see [DISCLAIMER.md](DISCLAIMER.md).
+
 ---
 
 <p align="center">
-  <sub>Design concept · Not affiliated with Smokehouse official website</sub>
+  <sub>Design concept · Unofficial redesign · Not affiliated with <a href="https://www.smokehouse.cz/">smokehouse.cz</a></sub>
 </p>

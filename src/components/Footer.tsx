@@ -84,15 +84,18 @@ export function Footer() {
           </div>
 
           <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row">
-            <p className="text-sm text-smoke-500">© 2026 smokehouse.cz</p>
-            <div className="flex gap-6 text-sm text-smoke-500">
-              <Link href="#" className="cursor-pointer transition-colors hover:text-smoke-300">
-                Cookies
-              </Link>
-              <Link href="#" className="cursor-pointer transition-colors hover:text-smoke-300">
-                GDPR
-              </Link>
-            </div>
+            <p className="text-center text-sm text-smoke-500 sm:text-left">
+              Design koncept · Neoficiální redesign ·{" "}
+              <a
+                href="https://www.smokehouse.cz/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-amber-light/80 underline decoration-amber-gold/30 underline-offset-2 hover:text-amber-light"
+              >
+                smokehouse.cz
+              </a>
+            </p>
+            <p className="text-sm text-smoke-600">Portfolio projekt · Zirvey</p>
           </div>
         </div>
       </div>
