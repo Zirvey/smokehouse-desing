@@ -10,7 +10,7 @@ type BranchesMapInnerProps = {
 };
 
 const MAP_TILES =
-  "https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png";
+  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 
 function createMarkerIcon(label: string) {
   return L.divIcon({
