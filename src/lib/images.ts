@@ -1,15 +1,21 @@
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
+function asset(path: string): string {
+  return `${basePath}${path}`;
+}
+
 export const images = {
-  hero: "/images/hero.jpg",
-  menu: "/images/menu.jpg",
-  reservation: "/images/reservation.jpg",
-  eshop: "/images/eshop.jpg",
-  loyaltyPoster: "/images/loyalty-poster.jpg",
-  about: "/locations/italska.jpg",
-  features: "/locations/klimentska.jpg",
-  logo: "/logo.png",
+  hero: asset("/images/hero.jpg"),
+  menu: asset("/images/menu.jpg"),
+  reservation: asset("/images/reservation.jpg"),
+  eshop: asset("/images/eshop.jpg"),
+  loyaltyPoster: asset("/images/loyalty-poster.jpg"),
+  about: asset("/locations/italska.jpg"),
+  features: asset("/locations/klimentska.jpg"),
+  logo: asset("/logo.png"),
   locations: {
-    klimentska: "/locations/klimentska.jpg",
-    italska: "/locations/italska.jpg",
-    ortenovo: "/locations/ortenovo-namesti.jpg",
+    klimentska: asset("/locations/klimentska.jpg"),
+    italska: asset("/locations/italska.jpg"),
+    ortenovo: asset("/locations/ortenovo-namesti.jpg"),
   },
 } as const;
