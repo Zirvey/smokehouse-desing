@@ -73,18 +73,21 @@ class SmokehousePDF(FPDF):
         self.multi_cell(0, 6, text)
         self.ln(2)
 
-    def fit_image(self, path: Path, y: float | None = None, max_h: float | None = None) -> None:
+    def fit_image_in_box(self, path: Path, x: float, y: float, box_w: float, box_h: float) -> tuple[float, float]:
         with Image.open(path) as img:
             px_w, px_h = img.size
 
+        ratio = min(box_w / px_w, box_h / px_h)
+        w = px_w * ratio
+        h = px_h * ratio
+        self.image(str(path), x=x + (box_w - w) / 2, y=y + (box_h - h) / 2, w=w, h=h)
+        return w, h
+
+    def fit_image(self, path: Path, y: float | None = None, max_h: float | None = None) -> None:
         top = y if y is not None else self.get_y()
         limit_h = max_h if max_h is not None else PAGE_H - top - MARGIN
         max_w = PAGE_W - 2 * MARGIN
-        ratio = min(max_w / px_w, limit_h / px_h)
-        w = px_w * ratio
-        h = px_h * ratio
-        x = (PAGE_W - w) / 2
-        self.image(str(path), x=x, y=top, w=w, h=h)
+        _, h = self.fit_image_in_box(path, MARGIN, top, max_w, limit_h)
         self.set_y(top + h + 4)
 
 
@@ -102,7 +105,7 @@ def comparison_page(pdf: SmokehousePDF) -> None:
     pdf.set_font("DejaVu", "B", 9)
     pdf.set_fill_color(30, 30, 30)
     pdf.set_text_color(255, 255, 255)
-    for i, header in enumerate(headers):
+    for header in headers:
         pdf.cell(col_w, row_h, header, border=1, fill=True)
     pdf.ln()
 
@@ -127,32 +130,61 @@ def mobile_page(pdf: SmokehousePDF) -> None:
         "Optimalizováno pro telefony — většina hostů hledá lounge na mobilu",
     )
 
-    mobile_img = DOCS / "mobile-hero.png"
-    text_x = MARGIN
-    if mobile_img.exists():
-        pdf.fit_image(mobile_img, y=MARGIN + 22, max_h=PAGE_H - MARGIN - 30)
-        text_x = PAGE_W / 2 + 6
-        pdf.set_xy(text_x, MARGIN + 22)
-    else:
-        pdf.set_xy(MARGIN, MARGIN + 22)
+    content_top = MARGIN + 24
+    phone_box_w = 82
+    phone_box_h = PAGE_H - content_top - MARGIN
+    text_x = MARGIN + phone_box_w + 12
+    text_w = PAGE_W - text_x - MARGIN
 
+    mobile_img = DOCS / "mobile-hero.png"
+    if mobile_img.exists():
+        pdf.set_draw_color(40, 40, 40)
+        pdf.set_line_width(0.4)
+        pdf.rect(MARGIN, content_top, phone_box_w, phone_box_h)
+        pdf.fit_image_in_box(mobile_img, MARGIN + 2, content_top + 2, phone_box_w - 4, phone_box_h - 4)
+
+    pdf.set_xy(text_x, content_top)
     pdf.set_font("DejaVu", "B", 11)
     pdf.set_text_color(202, 138, 4)
-    pdf.cell(0, 7, "Klíčové výhody na mobilu:", new_x="LMARGIN", new_y="NEXT")
+    pdf.cell(text_w, 7, "Klíčové výhody na mobilu:", new_x="LMARGIN", new_y="NEXT")
     pdf.ln(2)
     pdf.set_font("DejaVu", "", 9.5)
     pdf.set_text_color(50, 50, 50)
     for bullet in MOBILE_BULLETS:
         pdf.set_x(text_x)
-        pdf.multi_cell(PAGE_W - text_x - MARGIN, 5.5, f"• {bullet}")
+        pdf.multi_cell(text_w, 5.5, f"• {bullet}")
         pdf.ln(1)
 
     mobile_locations = DOCS / "mobile-locations.png"
-    if mobile_locations.exists():
+    mobile_map = DOCS / "mobile-map.png"
+    if mobile_locations.exists() or mobile_map.exists():
         pdf.light_page()
         pdf.set_xy(MARGIN, MARGIN)
-        pdf.section_title("Mobil — pobočky a mapa", "Karty poboček a interaktivní mapa na telefonu")
-        pdf.fit_image(mobile_locations, y=MARGIN + 20)
+        pdf.section_title(
+            "Mobil — pobočky a mapa",
+            "Karty poboček a interaktivní mapa na telefonu",
+        )
+
+        content_top = MARGIN + 22
+        gap = 10
+        box_w = (PAGE_W - 2 * MARGIN - gap) / 2
+        box_h = PAGE_H - content_top - MARGIN
+
+        if mobile_locations.exists():
+            pdf.set_font("DejaVu", "B", 10)
+            pdf.set_text_color(60, 60, 60)
+            pdf.set_xy(MARGIN, content_top - 6)
+            pdf.cell(box_w, 5, "Pobočky", align="C")
+            pdf.set_draw_color(40, 40, 40)
+            pdf.rect(MARGIN, content_top, box_w, box_h)
+            pdf.fit_image_in_box(mobile_locations, MARGIN + 2, content_top + 2, box_w - 4, box_h - 4)
+
+        if mobile_map.exists():
+            map_x = MARGIN + box_w + gap
+            pdf.set_xy(map_x, content_top - 6)
+            pdf.cell(box_w, 5, "Mapa Prahy", align="C")
+            pdf.rect(map_x, content_top, box_w, box_h)
+            pdf.fit_image_in_box(mobile_map, map_x + 2, content_top + 2, box_w - 4, box_h - 4)
 
 
 def main() -> None:
