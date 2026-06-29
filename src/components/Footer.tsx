@@ -2,14 +2,10 @@
 
 import { Facebook, Instagram, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import { branches } from "@/lib/locations";
 import { Logo } from "./Logo";
 
 const footerLinks = {
-  branches: [
-    "Klimentská 26, Praha 1",
-    "Italská 25, Praha 2",
-    "Ortenovo nám. 1631/16a, Praha 7",
-  ],
   menu: ["O nás", "Menu", "FAQ", "Novinky"],
 };
 
@@ -60,8 +56,8 @@ export function Footer() {
             <div>
               <h4 className="text-body mb-4 text-sm font-semibold text-white">Shisha bary v Praze</h4>
               <ul className="space-y-2 text-sm text-smoke-400">
-                {footerLinks.branches.map((branch) => (
-                  <li key={branch}>{branch}</li>
+                {branches.map((branch) => (
+                  <li key={branch.name}>{branch.address}</li>
                 ))}
               </ul>
             </div>

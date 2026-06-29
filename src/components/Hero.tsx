@@ -4,14 +4,11 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ChevronDown, MapPin } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { EmberOverlay } from "./EmberOverlay";
+import { branches } from "@/lib/locations";
 import { images } from "@/lib/images";
+import { EmberOverlay } from "./EmberOverlay";
 
-const branches = [
-  { address: "Klimentská 26, Prague 1" },
-  { address: "Italská 25, Prague 2" },
-  { address: "Ortenovo nám. 1631/16a, Prague 7" },
-];
+const branchAddresses = branches.map((b) => ({ address: b.address }));
 
 export function Hero() {
   const { scrollY } = useScroll();
@@ -65,7 +62,7 @@ export function Hero() {
           transition={{ delay: 0.6, duration: 0.8 }}
           className="mx-auto mt-8 flex max-w-lg flex-col gap-3 text-left sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2 sm:text-center"
         >
-          {branches.map((branch) => (
+          {branchAddresses.map((branch) => (
             <li key={branch.address} className="flex items-center gap-2 text-sm text-smoke-300 sm:text-base">
               <MapPin className="h-4 w-4 shrink-0 text-amber-gold" />
               <span>{branch.address}</span>
