@@ -4,31 +4,15 @@ import { motion } from "framer-motion";
 import { ArrowUpRight, MapPin, Phone } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+import { branches } from "@/lib/locations";
 import { images } from "@/lib/images";
+import { BranchesMap } from "./BranchesMap";
 import { ScrollReveal } from "./ScrollReveal";
 
-const locations = [
-  {
-    name: "Klimentská",
-    address: "Klimentská 26, Praha 1",
-    phone: "+420 725 532 876",
-    image: images.locations.klimentska,
-    maps: "https://maps.google.com/?q=Klimentská+26+Praha+1",
-  },
-  {
-    name: "Italská",
-    address: "Italská 25, Praha 2",
-    phone: "+420 776 318 662",
-    image: images.locations.italska,
-    maps: "https://maps.google.com/?q=Italská+25+Praha+2",
-  },
-  {
-    name: "Ortenovo náměstí",
-    address: "Ortenovo nám. 1631/16a, Praha 7",
-    phone: "+420 727 862 120",
-    image: images.locations.ortenovo,
-    maps: "https://maps.google.com/?q=Ortenovo+náměstí+Praha+7",
-  },
+const locationCards = [
+  { ...branches[0], image: images.locations.klimentska },
+  { ...branches[1], image: images.locations.italska },
+  { ...branches[2], image: images.locations.ortenovo },
 ];
 
 export function Locations() {
@@ -43,7 +27,7 @@ export function Locations() {
         </ScrollReveal>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {locations.map((location, index) => (
+          {locationCards.map((location, index) => (
             <ScrollReveal key={location.name} delay={index * 0.15}>
               <motion.article
                 whileHover={{ y: -8 }}
@@ -90,16 +74,20 @@ export function Locations() {
                       <ArrowUpRight className="h-4 w-4" />
                     </a>
                     <Link
-                      href="#kontakt"
+                      href="#mapa"
                       className="flex flex-1 cursor-pointer items-center justify-center bg-smoke-600 py-2.5 text-sm transition-all hover:bg-smoke-500"
                     >
-                      Zobrazit pobočku
+                      Zobrazit na mapě
                     </Link>
                   </div>
                 </div>
               </motion.article>
             </ScrollReveal>
           ))}
+        </div>
+
+        <div id="mapa">
+          <BranchesMap />
         </div>
       </div>
     </section>

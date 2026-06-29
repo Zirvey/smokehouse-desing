@@ -134,6 +134,21 @@
   animation: smoke-drift 8s ease-in-out infinite;
 }
 
+.map-wrap iframe {
+  pointer-events: none;
+}
+
+.map-wrap:active iframe,
+.map-wrap:focus-within iframe {
+  pointer-events: auto;
+}
+
+@media (hover: hover) {
+  .map-wrap:hover iframe {
+    pointer-events: auto;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
