@@ -4,13 +4,11 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { branches } from "@/lib/locations";
+import { MAP_ATTRIBUTION, MAP_TILES } from "@/lib/map";
 
 type BranchesMapInnerProps = {
   interactive: boolean;
 };
-
-const MAP_TILES =
-  "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png";
 
 function createMarkerIcon(label: string) {
   return L.divIcon({
@@ -35,9 +33,7 @@ export function BranchesMapInner({ interactive }: BranchesMapInnerProps) {
     });
 
     L.tileLayer(MAP_TILES, {
-      attribution:
-        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>',
-      subdomains: "abcd",
+      attribution: MAP_ATTRIBUTION,
       maxZoom: 20,
     }).addTo(map);
 

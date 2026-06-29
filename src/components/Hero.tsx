@@ -37,8 +37,8 @@ export function Hero() {
         className="relative z-10 mx-auto w-full max-w-4xl px-4 pt-36 pb-16 text-center sm:px-6 sm:pt-40"
       >
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
           transition={{ delay: 0.2, duration: 0.8 }}
           className="text-label mb-4 text-amber-light/90"
         >
@@ -46,8 +46,8 @@ export function Hero() {
         </motion.p>
 
         <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 24 }}
+          animate={{ y: 0 }}
           transition={{ delay: 0.4, duration: 0.8 }}
           className="font-display text-[clamp(1.75rem,6vw,4.5rem)]"
         >
@@ -57,8 +57,8 @@ export function Hero() {
         </motion.h1>
 
         <motion.ul
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
           transition={{ delay: 0.6, duration: 0.8 }}
           className="mx-auto mt-8 flex max-w-lg flex-col gap-3 text-left sm:max-w-none sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-6 sm:gap-y-2 sm:text-center"
         >
@@ -71,8 +71,8 @@ export function Hero() {
         </motion.ul>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
           transition={{ delay: 0.8, duration: 0.8 }}
           className="text-body mx-auto mt-6 max-w-2xl text-base text-smoke-300 sm:text-lg"
         >
@@ -80,8 +80,8 @@ export function Hero() {
         </motion.p>
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ y: 16 }}
+          animate={{ y: 0 }}
           transition={{ delay: 1, duration: 0.8 }}
           className="mt-10 flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center"
         >
@@ -101,8 +101,8 @@ export function Hero() {
       </motion.div>
 
       <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        initial={{ y: 8 }}
+        animate={{ y: 0 }}
         transition={{ delay: 1.5, duration: 1 }}
         className="absolute bottom-6 left-1/2 z-10 -translate-x-1/2"
       >
