@@ -1,6 +1,6 @@
 "use client";
 
-import { SMOKEHOUSE_MAP_EMBED } from "@/lib/locations";
+import { branches, getBranchesMapEmbedUrl } from "@/lib/locations";
 import { ScrollReveal } from "./ScrollReveal";
 
 export function BranchesMap() {
@@ -20,12 +20,25 @@ export function BranchesMap() {
           </div>
           <iframe
             title="Smokehouse — mapa poboček v Praze"
-            src={SMOKEHOUSE_MAP_EMBED}
+            src={getBranchesMapEmbedUrl()}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            allowFullScreen
             className="absolute inset-0 h-full w-full border-0"
           />
+        </div>
+
+        <div className="flex flex-col gap-2 border-t border-white/10 p-4 sm:flex-row sm:flex-wrap sm:gap-3">
+          {branches.map((branch) => (
+            <a
+              key={branch.name}
+              href={branch.maps}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 cursor-pointer border border-white/10 bg-smoke-900 px-4 py-2.5 text-center text-sm text-smoke-300 transition-colors hover:border-amber-gold/40 hover:text-amber-light"
+            >
+              {branch.name} — Navigace
+            </a>
+          ))}
         </div>
       </div>
     </ScrollReveal>
