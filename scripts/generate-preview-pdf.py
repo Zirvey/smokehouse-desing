@@ -30,16 +30,6 @@ COMPARISON_ROWS = [
     ("CTA (akce)", "Rozptýlené po stránce", "Výrazná tlačítka Rezervace / Naše pobočky v hero"),
 ]
 
-MOBILE_BULLETS = [
-    "Sticky navigace — menu vždy dostupné palcem jedné ruky",
-    "Hero text v clamp() — nadpisy se přizpůsobí šířce displeje",
-    "Pobočky ve sloupci — jedna karta pod druhou, snadné scrollování",
-    "Tlačítka na celou šířku — větší touch target pro rezervaci",
-    "Mapa na mobilu — stejná jako na desktopu, tap pro ovládání",
-    "Bez horizontálního scrollu — overflow-x hidden, čistý layout",
-]
-
-
 class SmokehousePDF(FPDF):
     def __init__(self) -> None:
         super().__init__(orientation="L", unit="mm", format="A4")
@@ -122,71 +112,6 @@ def comparison_page(pdf: SmokehousePDF) -> None:
         pdf.ln()
 
 
-def mobile_page(pdf: SmokehousePDF) -> None:
-    pdf.light_page()
-    pdf.set_xy(MARGIN, MARGIN)
-    pdf.section_title(
-        "Mobilní design",
-        "Optimalizováno pro telefony — většina hostů hledá lounge na mobilu",
-    )
-
-    content_top = MARGIN + 24
-    phone_box_w = 82
-    phone_box_h = PAGE_H - content_top - MARGIN
-    text_x = MARGIN + phone_box_w + 12
-    text_w = PAGE_W - text_x - MARGIN
-
-    mobile_img = DOCS / "mobile-hero.png"
-    if mobile_img.exists():
-        pdf.set_draw_color(40, 40, 40)
-        pdf.set_line_width(0.4)
-        pdf.rect(MARGIN, content_top, phone_box_w, phone_box_h)
-        pdf.fit_image_in_box(mobile_img, MARGIN + 2, content_top + 2, phone_box_w - 4, phone_box_h - 4)
-
-    pdf.set_xy(text_x, content_top)
-    pdf.set_font("DejaVu", "B", 11)
-    pdf.set_text_color(202, 138, 4)
-    pdf.cell(text_w, 7, "Klíčové výhody na mobilu:", new_x="LMARGIN", new_y="NEXT")
-    pdf.ln(2)
-    pdf.set_font("DejaVu", "", 9.5)
-    pdf.set_text_color(50, 50, 50)
-    for bullet in MOBILE_BULLETS:
-        pdf.set_x(text_x)
-        pdf.multi_cell(text_w, 5.5, f"• {bullet}")
-        pdf.ln(1)
-
-    mobile_locations = DOCS / "mobile-locations.png"
-    mobile_map = DOCS / "mobile-map.png"
-    if mobile_locations.exists() or mobile_map.exists():
-        pdf.light_page()
-        pdf.set_xy(MARGIN, MARGIN)
-        pdf.section_title(
-            "Mobil — pobočky a mapa",
-            "Karty poboček a interaktivní mapa na telefonu",
-        )
-
-        content_top = MARGIN + 22
-        gap = 10
-        box_w = (PAGE_W - 2 * MARGIN - gap) / 2
-        box_h = PAGE_H - content_top - MARGIN
-
-        if mobile_locations.exists():
-            pdf.set_font("DejaVu", "B", 10)
-            pdf.set_text_color(60, 60, 60)
-            pdf.set_xy(MARGIN, content_top - 6)
-            pdf.cell(box_w, 5, "Pobočky", align="C")
-            pdf.set_draw_color(40, 40, 40)
-            pdf.rect(MARGIN, content_top, box_w, box_h)
-            pdf.fit_image_in_box(mobile_locations, MARGIN + 2, content_top + 2, box_w - 4, box_h - 4)
-
-        if mobile_map.exists():
-            map_x = MARGIN + box_w + gap
-            pdf.set_xy(map_x, content_top - 6)
-            pdf.cell(box_w, 5, "Mapa Prahy", align="C")
-            pdf.rect(map_x, content_top, box_w, box_h)
-            pdf.fit_image_in_box(mobile_map, map_x + 2, content_top + 2, box_w - 4, box_h - 4)
-
-
 def main() -> None:
     pdf = SmokehousePDF()
 
@@ -223,7 +148,6 @@ def main() -> None:
     )
 
     comparison_page(pdf)
-    mobile_page(pdf)
 
     sections = [
         ("Hero — úvodní sekce", "Parallax, žár uhlíků, CTA tlačítka", DOCS / "hero.png"),
