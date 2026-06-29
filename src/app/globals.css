@@ -154,8 +154,8 @@
   font-family: var(--font-sans);
 }
 
-/* Stadia Alidade Smooth Dark + warm amber tint (markers stay outside tile pane) */
-.branch-map-canvas .leaflet-tile-pane {
+/* Dark map tiles + warm amber tint (Leaflet only) */
+.branch-map-canvas.leaflet-container .leaflet-tile-pane {
   filter: sepia(0.16) hue-rotate(-14deg) saturate(1.2) brightness(1.1) contrast(1.08);
 }
 
