@@ -1,3 +1,7 @@
+export const GOOGLE_MAPS_API_KEY = process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY ?? "";
+
+export const HAS_GOOGLE_MAPS = Boolean(GOOGLE_MAPS_API_KEY);
+
 const STADIA_API_KEY = process.env.NEXT_PUBLIC_STADIA_API_KEY;
 
 const CARTO_DARK_TILES =
@@ -7,7 +11,7 @@ const STADIA_TILES = STADIA_API_KEY
   ? `https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png?api_key=${STADIA_API_KEY}`
   : null;
 
-/** Carto works without an API key (GitHub Pages). Stadia is used only when a key is set. */
+/** Leaflet fallback when Google Maps key is not set. */
 export const MAP_TILES = STADIA_TILES ?? CARTO_DARK_TILES;
 
 export const MAP_TILE_SUBDOMAINS = STADIA_TILES ? undefined : "abcd";

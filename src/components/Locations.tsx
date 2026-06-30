@@ -34,16 +34,18 @@ export function Locations() {
                 transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
                 className="group relative overflow-hidden border border-white/10 bg-smoke-800"
               >
-                <div className="relative h-64 overflow-hidden">
-                  <Image
-                    src={location.image}
-                    alt={location.name}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-smoke-900 via-smoke-900/20 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
+                <div className="relative h-64 overflow-hidden bg-smoke-900">
+                  <div className="absolute -inset-px transition-transform duration-700 will-change-transform group-hover:scale-110">
+                    <Image
+                      src={location.image}
+                      alt={location.name}
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-smoke-900 via-smoke-900/20 to-transparent" />
+                  </div>
+                  <div className="absolute bottom-4 left-4 z-10">
                     <span className="font-display text-2xl tracking-wide">{location.name}</span>
                   </div>
                 </div>

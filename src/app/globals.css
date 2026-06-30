@@ -154,7 +154,12 @@
   font-family: var(--font-sans);
 }
 
-/* Dark map tiles + warm amber tint (Leaflet only) */
+.branch-map-canvas--google {
+  background: #0a0a0a;
+  font-family: var(--font-sans);
+}
+
+/* Dark map tiles + warm amber tint (Leaflet fallback only) */
 .branch-map-canvas.leaflet-container .leaflet-tile-pane {
   filter: sepia(0.16) hue-rotate(-14deg) saturate(1.2) brightness(1.1) contrast(1.08);
 }

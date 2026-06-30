@@ -30,6 +30,7 @@ jobs:
         env:
           GITHUB_PAGES: "true"
           NEXT_PUBLIC_STADIA_API_KEY: ${{ secrets.STADIA_API_KEY }}
+          NEXT_PUBLIC_GOOGLE_MAPS_API_KEY: ${{ secrets.GOOGLE_MAPS_API_KEY }}
 
       - uses: actions/upload-pages-artifact@v3
         with:
